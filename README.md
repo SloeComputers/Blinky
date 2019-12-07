@@ -7,7 +7,7 @@ Just flashes an LED.
 ## Platform support
 
 |Platform|Processor|PLT_TARGET|Status|Build dependency|
-|---|---|---|---|
+|--|--|--|--|--|
 |mbed LPC11U24|Arm Cortex-M0|mbedLPC11U24|OK|arm-none-eabi-gcc|
 |mbed LPC1768|Arm Cortex-M3|mbedLPC1768|OK?|arm-none-eabi-gcc|
 |BBC microbit|Arm Cortex-M0|microbit|OK?|arm-none-eabi-gcc|
