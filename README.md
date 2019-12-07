@@ -6,13 +6,16 @@ Just flashes an LED.
 
 ## Platform support
 
-|Platform|Processor|PLT_TARGET|Status|Build dependency|
-|--|--|--|--|--|
-|mbed LPC11U24|Arm Cortex-M0|mbedLPC11U24|OK|arm-none-eabi-gcc|
-|mbed LPC1768|Arm Cortex-M3|mbedLPC1768|OK?|arm-none-eabi-gcc|
-|BBC microbit|Arm Cortex-M0|microbit|OK?|arm-none-eabi-gcc|
-|NXP LPC810|Arm Cortex-M0|LPC810|OK?|arm-none-eabi-gcc|
-|NXP LPC1114FN28|Arm Cortex-M0|LPC1114|OK?|arm-none-eabi-gcc|
+|Platform|Processor|FLASH|RAM|PLT_TARGET|Status|Build dependency|
+|--|--|--|--|--|--|--|
+|mbed LPC11U24|Arm Cortex-M0|32k|8k|mbedLPC11U24|OK|arm-none-eabi-gcc|
+|mbed LPC1768|Arm Cortex-M3|512k|32k *1|mbedLPC1768|OK?|arm-none-eabi-gcc|
+|BBC microbit|Arm Cortex-M0|256k|16k *2|microbit|OK?|arm-none-eabi-gcc|
+|NXP LPC810|Arm Cortex-M0|4k|1k|LPC810|OK?|arm-none-eabi-gcc|
+|NXP LPC1114FN28|Arm Cortex-M0|32k|4k|LPC1114|OK?|arm-none-eabi-gcc|
+
+*1 - a further 32k RAM is available
+*2 - some seem to have 32k RAM
 
 ## How to build
 
