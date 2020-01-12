@@ -13,6 +13,8 @@ Just flashes an LED.
 |BBC microbit|Arm Cortex-M0|16 MHz|256k|16k|microbit|OK?|arm-none-eabi-gcc|
 |NXP LPC810|Arm Cortex-M0+|30 MHz|4k|1k|LPC810|OK?|arm-none-eabi-gcc|
 |NXP LPC1114FN28|Arm Cortex-M0|50 MHz|32k|4k|LPC1114|OK?|arm-none-eabi-gcc|
+|Atmel ATtiny84|AVR tiny|20 MHz|8k|512|ATtiny84|OK?|avr-gcc|
+|Atmel ATtiny85|AVR tiny|20 MHz|8k|512|ATtiny85|OK?|avr-gcc|
 
 ### Notes for mbed LPC1768
 

@@ -22,7 +22,7 @@
 
 #include "MTL/Digital.h"
 
-inline void wait(volatile unsigned n)
+inline void wait(volatile uint32_t n)
 {
    while(n--);
 }

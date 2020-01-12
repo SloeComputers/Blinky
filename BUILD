@@ -3,4 +3,7 @@ Platform/BUILD.py \
    $* \
    mbedLPC11U24 \
    mbedLPC1768 \
-   microbit
+   microbit \
+   ATtiny85 \
+   ATtiny84 \
+   native
