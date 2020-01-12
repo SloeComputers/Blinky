@@ -29,8 +29,8 @@ Some microbit modules seem to have been fitted with a version of the nRF51 MCU w
 Build using cmake, selecting the PLT_TARGET value from the platform support table above.
 
 ```
-mkdir build
-cd build
+mkdir build_<platform>
+cd build_<platform>
 cmake -DPLT_TARGET=<platform>  ..
 make
 ```
