@@ -27,7 +27,7 @@ inline void wait(volatile uint32_t n)
    while(n--);
 }
 
-int main()
+int mtlMain()
 {
 #if defined(PLT_TARGET_microbit)
    MTL::Digital::Out<MTL::PIN_LED_COL1> led_gnd(false);
@@ -42,4 +42,6 @@ int main()
 
       wait(1000000);
    }
+
+   return 0;
 }
