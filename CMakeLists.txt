@@ -20,24 +20,14 @@
 #  SOFTWARE.
 #-------------------------------------------------------------------------------
 
-cmake_minimum_required(VERSION 3.11.4)
-
-include(Platform/build.cmake NO_POLICY_SCOPE)
-
-#-------------------------------------------------------------------------------
+cmake_minimum_required(VERSION 3.19.1)
 
 project(Blinky
-        VERSION   0.0.0
-        LANGUAGES C CXX ASM)
+        LANGUAGES CXX C ASM
+        VERSION   0.0.0)
 
-set(author  John D. Haughton)
+add_subdirectory(Platform)
 
-set(source  Source/blinky.cpp)
-set(binary  blinky)
+add_executable(blinky Source/blinky.cpp)
 
-#-------------------------------------------------------------------------------
-
-add_executable(${binary} ${source})
-target_link_libraries(${binary} ${PLT_libs})
-
-install(TARGETS ${binary} RUNTIME DESTINATION bin)
+target_link_libraries(blinky PLT)
