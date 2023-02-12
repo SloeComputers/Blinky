@@ -20,6 +20,7 @@
 // SOFTWARE.
 //------------------------------------------------------------------------------
 
+#include "MTL/MTL.h"
 #include "MTL/Digital.h"
 
 inline void wait(volatile uint32_t n)
