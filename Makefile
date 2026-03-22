@@ -1,16 +1,3 @@
-
-targets = mbedLPC11U24 \
-          mbedLPC1768 \
-          microbitV1 \
-          microbitV2 \
-          LPC810 \
-          LPC1114 \
-          rpipico \
-
-#   microbitV1_32k \
-#   ATtiny85 \
-#   ATtiny84 \
-
-all: $(targets)
+all: rp2040 rp2350 LPC11U24 LPC1768 nRF51 native # nRF52
 
 include Platform/build.make

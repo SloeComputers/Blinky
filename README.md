@@ -1,37 +1,57 @@
-# Blinky
+# blinky
 
-"hello, world!" for embedded computers. No OS required.
+Example Platform project. Just flashes an LED at around 1 Hz.
 
-Just flashes an LED.
+|File|Description|
+|----|-----------|
+|CMakeLists.txt|Project build script|
+|Makefile|make helper. Configure and launch a `CMake` build|
+|README.md|This document|
+|blinky.cpp|Project source|
 
-## Platform support
+## Supported targets
 
-|Platform|Processor|Clock|Flash|RAM|PLT_TARGET|Status|Build dependencies|
-|--|--|--|--|--|--|--|--|
-|mbed LPC11U24|Arm Cortex-M0|48 MHz|32k|8k|mbedLPC11U24|OK|arm-none-eabi-gcc|
-|mbed LPC1768|Arm Cortex-M3|96 MHz|512k|32k|mbedLPC1768|OK?|arm-none-eabi-gcc|
-|BBC microbit|Arm Cortex-M0|16 MHz|256k|16k|microbitV1|OK|arm-none-eabi-gcc|
-|BBC microbit|Arm Cortex-M0|16 MHz|256k|16k|microbitV2|OK|arm-none-eabi-gcc|
-|NXP LPC810|Arm Cortex-M0+|30 MHz|4k|1k|LPC810|OK?|arm-none-eabi-gcc|
-|NXP LPC1114FN28|Arm Cortex-M0|50 MHz|32k|4k|LPC1114|OK?|arm-none-eabi-gcc|
-|Atmel ATtiny84|AVR tiny|20 MHz|8k|512|ATtiny84|OK?|avr-gcc|
-|Atmel ATtiny85|AVR tiny|20 MHz|8k|512|ATtiny85|OK?|avr-gcc|
+|PLT_TARGET|Core           |Clock|RAM|Description|
+|----------|---------------|-----|---|-----------|
+|rp2040    |Arm Cortex-M0  |133 MHz|264 K|Raspberry Pi RP2040 MCU|
+|rp2350    |Arm Cortex-M33F|150 MHz|520 K|Raspberry Pi RP2350 MCU|
+|LPC11U24  |Arm Cortex-M0  |48 MHz|8 K|NXP LPC11u24 MCU|
+|LPC1768   |Arm Cortex-M3  |96 MHz|32 K|NXP LPC1768 MCU|
+|nRF51     |Arm Cortex-M0  |16 MHz|16 K|Nordic Semi. nRF51 MCU|
+|nRF52     |Arm Cortex-M0  |16 MHz|16 K|Nordic Semi. nRF52 MCU|
+|native    |arm64, x86-64  |-|-|Simulated hardware on macOS or Linux|
 
-### Notes for mbed LPC1768
+## Software dependencies
 
-A further 32k RAM is available on chip at an address not contiguous with the main RAM.
++ [https://github.com/SloeComputers/Platform](https://github.com/SloeComputers/Platform)
++ `arm-none-eabi-gcc`
++ `CMake` via UNIX `make` or auto detection of `ninja` if installed
++ `Python3`
++ `SDL2` (for native target)
 
-### Notes for BBC microbit
+## Build 
 
-Some microbit modules seem to have been fitted with a version of the nRF51 MCU with 32k RAM.
+Indirect build for a named target using the make helper...
 
-## How to build
-
-Build using cmake, selecting the PLT_TARGET value from the platform support table above.
-
+```bash
+make rp2040
 ```
-mkdir build_<platform>
-cd build_<platform>
-cmake -DPLT_TARGET=<platform>  ..
+
+Direct build using `CMake`...
+
+```bash
+mkdir build/rp2040
+cd build/rp2040
+cmake -DCMAKE_BUILD_TYPE=Release -DPLT_TARGET=rp2040 -DCMAKE_TOOLCHAIN_FILE=Platform/MTL/rp2040/target/toolchain.cmake ../..
 make
 ```
+
+Flashable images will be found under the build directory for each target...
+
+```
+build/rp2040/blinky_RPIPICO.uf2
+```
+
+## License
+
+None.
