@@ -1,6 +1,6 @@
 # blinky
 
-Example Platform project. Just flashes an LED at around 1 Hz.
+Example **Platform** project. Flashes an LED at around 1 Hz.
 
 |File              |Description|
 |------------------|-----------|
@@ -11,15 +11,15 @@ Example Platform project. Just flashes an LED at around 1 Hz.
 
 ## Supported targets
 
-|PLT_TARGET  |Core           |Clock  |RAM  |Description|
-|------------|---------------|-------|-----|-----------|
-|**rp2040**  |Arm Cortex-M0  |133 MHz|264 K|Raspberry Pi RP2040 MCU|
-|**rp2350**  |Arm Cortex-M33F|150 MHz|520 K|Raspberry Pi RP2350 MCU|
-|**LPC11U24**|Arm Cortex-M0  | 48 MHz|  8 K|NXP LPC11u24 MCU|
-|**LPC1768** |Arm Cortex-M3  | 96 MHz| 32 K|NXP LPC1768 MCU|
-|**nRF51**   |Arm Cortex-M0  | 16 MHz| 16 K|Nordic Semi. nRF51 MCU|
-|**nRF52**   |Arm Cortex-M0  | 16 MHz| 16 K|Nordic Semi. nRF52 MCU|
-|**native**  |arm64, x86-64  |-      |-    |Simulated hardware on macOS or Linux|
+|PLT_TARGET  |Core           |Clock  |RAM |Description|
+|------------|---------------|-------|----|-----------|
+|**rp2040**  |Arm Cortex-M0  |133 MHz|264K|Raspberry Pi RP2040 MCU|
+|**rp2350**  |Arm Cortex-M33F|150 MHz|520K|Raspberry Pi RP2350 MCU|
+|**LPC11U24**|Arm Cortex-M0  | 48 MHz|  8K|NXP LPC11u24 MCU|
+|**LPC1768** |Arm Cortex-M3  | 96 MHz| 32K|NXP LPC1768 MCU|
+|**nRF51**   |Arm Cortex-M0  | 16 MHz| 16K|Nordic Semi nRF51 MCU|
+|**nRF52**   |Arm Cortex-M0  | 16 MHz| 16K|Nordic Semi nRF52 MCU|
+|**native**  |arm64, x86-64  |-      |-   |Simulated hardware on macOS or Linux|
 
 ## Software dependencies
 
@@ -29,7 +29,7 @@ Example Platform project. Just flashes an LED at around 1 Hz.
 + `Python3`
 + `SDL2` (for native target)
 
-## Build 
+## Build
 
 Indirect build for a named target using the make helper...
 
