@@ -1,12 +1,12 @@
 # blinky
 
-Example **Platform** project. Flashes an LED at around 1 Hz.
+Example embedded **PDK** project. Flashes an LED at around 1 Hz.
 
 |File              |Description|
 |------------------|-----------|
 |**CMakeLists.txt**|Project build script|
 |**Makefile**      |make helper. Configure and launch a `CMake` build|
-|**Platform**      | |
+|**PDK**           |Portable Development Kit|
 |**blinky.cpp**    |Project source|
 
 ## Supported targets
@@ -23,7 +23,7 @@ Example **Platform** project. Flashes an LED at around 1 Hz.
 
 ## Software dependencies
 
-+ [https://github.com/SloeComputers/Platform](https://github.com/SloeComputers/Platform)
++ [https://github.com/SloeComputers/PDK](https://github.com/SloeComputers/PDK)
 + `arm-none-eabi-gcc`
 + `CMake` via UNIX `make` or auto detection of `ninja` if installed
 + `Python3`
@@ -42,7 +42,7 @@ Direct build using `CMake`...
 ```bash
 mkdir build/rp2040
 cd build/rp2040
-cmake -DCMAKE_BUILD_TYPE=Release -DPLT_TARGET=rp2040 -DCMAKE_TOOLCHAIN_FILE=Platform/MTL/rp2040/target/toolchain.cmake ../..
+cmake -DCMAKE_BUILD_TYPE=Release -DPLT_TARGET=rp2040 -DCMAKE_TOOLCHAIN_FILE=PDK/MTL/rp2040/target/toolchain.cmake ../..
 make
 ```
 
