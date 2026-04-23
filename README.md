@@ -9,6 +9,10 @@ Example embedded **PDK** project. Flashes an LED at around 1 Hz.
 |**PDK**           |Portable Development Kit|
 |**blinky.cpp**    |Project source|
 
+## Status
+
+[![Build Status](https://github.com/SloeComputers/Blinky/actions/workflows/build_on_push.yml/badge.svg)](https://github.com/SloeComputers/Blinky/actions/workflows/build_on_push.yml)
+
 ## Supported targets
 
 |PLT_TARGET  |Core           |Clock  |RAM |Description|
