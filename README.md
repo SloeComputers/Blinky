@@ -15,7 +15,7 @@ Example embedded **PDK** project. Flashes an LED at around 1 Hz.
 
 ## Supported targets
 
-|PLT_TARGET  |Core           |Clock  |RAM |Description|
+|PDK_TARGET  |Core           |Clock  |RAM |Description|
 |------------|---------------|-------|----|-----------|
 |**rp2040**  |Arm Cortex-M0  |133 MHz|264K|Raspberry Pi RP2040 MCU|
 |**rp2350**  |Arm Cortex-M33F|150 MHz|520K|Raspberry Pi RP2350 MCU|
@@ -28,7 +28,7 @@ Example embedded **PDK** project. Flashes an LED at around 1 Hz.
 ## Software dependencies
 
 + [https://github.com/SloeComputers/PDK](https://github.com/SloeComputers/PDK)
-+ `arm-none-eabi-gcc`
++ `arm-none-eabi-gcc
 + `CMake` via UNIX `make` or auto detection of `ninja` if installed
 + `Python3`
 + `SDL2` (for native target)
@@ -46,7 +46,7 @@ Direct build using `CMake`...
 ```bash
 mkdir build/rp2040
 cd build/rp2040
-cmake -DCMAKE_BUILD_TYPE=Release -DPLT_TARGET=rp2040 -DCMAKE_TOOLCHAIN_FILE=PDK/MTL/rp2040/target/toolchain.cmake ../..
+cmake -DCMAKE_BUILD_TYPE=Release -DPDK_TARGET=rp2040 -DCMAKE_TOOLCHAIN_FILE=PDK/MTL/rp2040/target/toolchain.cmake ../..
 make
 ```
 
