@@ -4,8 +4,8 @@ Example embedded **PDK** project. Flashes an LED at around 1 Hz.
 
 |File              |Description|
 |------------------|-----------|
-|**CMakeLists.txt**|Project build script|
-|**Makefile**      |make helper. Configure and launch a `CMake` build|
+|**CMakeLists.txt**|Build script|
+|**Makefile**      |Build helper. Configure and launch a `CMake` build|
 |**PDK**           |Portable Development Kit|
 |**blinky.cpp**    |Project source|
 
