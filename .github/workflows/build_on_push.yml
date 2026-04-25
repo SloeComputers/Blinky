@@ -64,7 +64,7 @@ jobs:
     - name: Build
       working-directory: ${{github.workspace}}/build/rp2040
       shell: bash
-      run: make VERBOSE=1
+      run: make
 
   #---------------------------------------------------------------------
   # Linux CI
