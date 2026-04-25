@@ -40,7 +40,7 @@ jobs:
       run: ctest -V -C $BUILD_TYPE
 
   #---------------------------------------------------------------------
-  # target CI
+  # RP2040 CI
 
   build_rp2040:
     runs-on: macOS-latest
@@ -63,6 +63,33 @@ jobs:
 
     - name: Build
       working-directory: ${{github.workspace}}/build/rp2040
+      shell: bash
+      run: make
+
+  #---------------------------------------------------------------------
+  # RP2350 CI
+
+  build_rp2350:
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+       submodules: 'recursive'
+
+    - name: Install dependencies
+      run:  brew install arm-none-eabi-gcc
+
+    - name: Prepare build
+      run: mkdir -p ${{github.workspace}}/build/rp2350
+
+    - name: Configure build
+      working-directory: ${{github.workspace}}/build/rp2350
+      shell: bash
+      run: cmake -DPDK_TARGET=rp2350 -DCMAKE_TOOLCHAIN_FILE=PDK/MTL/rp2350/target/toolchain.cmake ../..
+
+    - name: Build
+      working-directory: ${{github.workspace}}/build/rp2350
       shell: bash
       run: make
 
