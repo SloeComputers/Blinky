@@ -28,10 +28,20 @@ Example embedded **PDK** project. Flashes an LED at around 1 Hz.
 ## Software dependencies
 
 + [https://github.com/SloeComputers/PDK](https://github.com/SloeComputers/PDK)
-+ `arm-none-eabi-gcc
 + `CMake` via UNIX `make` or auto detection of `ninja` if installed
 + `Python3`
++ `arm-none-eabi-gcc (for non-native targets)
 + `SDL2` (for native target)
+
+## Checkout
+
+This repo uses git sub-modules, so checkout using --recurse to clone all the dependent source...
+
+    git clone --recurse https://github.com/SloeComputers/Blinky.git
+
+or
+
+    git clone --recurse ssh://git@github.com/SloeComputers/Blinky.git
 
 ## Build
 
