@@ -23,6 +23,7 @@ Supported micro-controllers..
 |**rp2350**  |Arm Cortex-M33F|150 MHz|520K|Raspberry Pi RP2350 MCU|
 |**LPC11U24**|Arm Cortex-M0  | 48 MHz|  8K|NXP LPC11u24 MCU|
 |**LPC1768** |Arm Cortex-M3  | 96 MHz| 32K|NXP LPC1768 MCU|
+|**LPC810**  |Arm Cortex-M0  | 25 MHz|  1K|NXP LPC810 MCU|
 |**nRF51**   |Arm Cortex-M0  | 16 MHz| 16K|Nordic Semi nRF51 MCU|
 |**nRF52**   |Arm Cortex-M4  | 64 MHz|128K|Nordic Semi nRF52 MCU|
 |**native**  |arm64, x86-64  |-      |-   |Simulated hardware on macOS or Linux|
@@ -35,6 +36,7 @@ Supported modules..
 |**rp2350**  |RPIPICO, TINY2350|
 |**LPC11U24**|MBED|
 |**LPC1768** |MBED|
+|**LPC810**  |DIP|
 |**nRF51**   |MICROBITv1|
 |**nRF52**   |MICROBITv2|
 
