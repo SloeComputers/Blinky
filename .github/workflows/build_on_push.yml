@@ -39,6 +39,11 @@ jobs:
       shell: bash
       run: ctest -V -C $BUILD_TYPE
 
+    - uses: actions/upload-artifact@v7
+      with:
+        name: MacOS image(s)
+        path: ${{github.workspace}}/build/macOS/*_NATIVE
+
   #---------------------------------------------------------------------
   # Linux CI
 
@@ -73,6 +78,11 @@ jobs:
       shell: bash
       run: ctest -V -C $BUILD_TYPE
 
+    - uses: actions/upload-artifact@v7
+      with:
+        name: Linux image(s)
+        path: ${{github.workspace}}/build/linux/*_NATIVE
+
   #---------------------------------------------------------------------
   # MTL target CI
 
@@ -103,3 +113,11 @@ jobs:
       working-directory: ${{github.workspace}}/build/${{matrix.target}}
       shell: bash
       run: make
+
+    - uses: actions/upload-artifact@v7
+      with:
+        name: ${{matrix.target}} image(s)
+        path: |
+          ${{github.workspace}}/build/${{matrix.target}}/*.uf2
+          ${{github.workspace}}/build/${{matrix.target}}/*.hex
+          ${{github.workspace}}/build/${{matrix.target}}/*.bin
