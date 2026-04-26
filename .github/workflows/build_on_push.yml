@@ -41,7 +41,7 @@ jobs:
 
     - uses: actions/upload-artifact@v7
       with:
-        name: MacOS image(s)
+        name: blinky_MacOS
         path: ${{github.workspace}}/build/macOS/*_NATIVE
 
   #---------------------------------------------------------------------
@@ -80,7 +80,7 @@ jobs:
 
     - uses: actions/upload-artifact@v7
       with:
-        name: Linux image(s)
+        name: blinky_Linux
         path: ${{github.workspace}}/build/linux/*_NATIVE
 
   #---------------------------------------------------------------------
@@ -116,7 +116,7 @@ jobs:
 
     - uses: actions/upload-artifact@v7
       with:
-        name: ${{matrix.target}} image(s)
+        name: blinky_${{matrix.target}}
         path: |
           ${{github.workspace}}/build/${{matrix.target}}/*.uf2
           ${{github.workspace}}/build/${{matrix.target}}/*.hex

@@ -15,6 +15,8 @@ Example embedded **PDK** project. Flashes an LED at around 1 Hz.
 
 ## Supported targets
 
+Supported micro-controllers..
+
 |PDK_TARGET  |Core           |Clock  |RAM |Description|
 |------------|---------------|-------|----|-----------|
 |**rp2040**  |Arm Cortex-M0  |133 MHz|264K|Raspberry Pi RP2040 MCU|
@@ -24,6 +26,17 @@ Example embedded **PDK** project. Flashes an LED at around 1 Hz.
 |**nRF51**   |Arm Cortex-M0  | 16 MHz| 16K|Nordic Semi nRF51 MCU|
 |**nRF52**   |Arm Cortex-M4  | 64 MHz|128K|Nordic Semi nRF52 MCU|
 |**native**  |arm64, x86-64  |-      |-   |Simulated hardware on macOS or Linux|
+
+Supported modules..
+
+|PDK_TARGET  |Modules|
+|------------|-------|
+|**rp2040**  |RPIPICO, BADGER2040, TUFTY2040|
+|**rp2350**  |RPIPICO, TINY2350|
+|**LPC11U24**|MBED|
+|**LPC1768** |MBED|
+|**nRF51**   |MICROBITv1|
+|**nRF52**   |MICROBITv2|
 
 ## Software dependencies
 
