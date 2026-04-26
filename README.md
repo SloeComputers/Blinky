@@ -32,11 +32,11 @@ Supported modules..
 
 |PDK_TARGET  |Modules|
 |------------|-------|
-|**rp2040**  |RPIPICO, BADGER2040, TUFTY2040|
-|**rp2350**  |RPIPICO, TINY2350|
-|**LPC11U24**|MBED|
-|**LPC1768** |MBED|
-|**LPC810**  |DIP|
+|**rp2040**  |[RPIPICO](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico1), [BADGER2040](https://shop.pimoroni.com/products/badger-2040), [TUFTY2040](https://shop.pimoroni.com/products/tufty-2040)|
+|**rp2350**  |[RPIPICO](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico2), [TINY2350](https://shop.pimoroni.com/products/tiny-2350)|
+|**LPC11U24**|[MBED](https://os.mbed.com/platforms/mbed-LPC1768/)|
+|**LPC1768** |[MBED](https://os.mbed.com/platforms/mbed-LPC11U24)|
+|**LPC810**  |[DIP](https://www.nxp.com/part/LPC810M021FN8)|
 |**nRF51**   |MICROBITv1|
 |**nRF52**   |MICROBITv2|
 
