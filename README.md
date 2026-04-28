@@ -45,7 +45,7 @@ Supported modules..
 + [https://github.com/SloeComputers/PDK](https://github.com/SloeComputers/PDK)
 + `CMake` via UNIX `make` or auto detection of `ninja` if installed
 + `Python3`
-+ `arm-none-eabi-gcc (for non-native targets)
++ `arm-none-eabi-gcc` (for non-native targets)
 + `SDL2` (for native target)
 
 ## Checkout
@@ -71,7 +71,7 @@ Direct build using `CMake`...
 ```bash
 mkdir build/rp2040
 cd build/rp2040
-cmake -DCMAKE_BUILD_TYPE=Release -DPDK_TARGET=rp2040 -DCMAKE_TOOLCHAIN_FILE=PDK/MTL/rp2040/target/toolchain.cmake ../..
+cmake ../.. -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/rp2040/toolchain.cmake
 make
 ```
 
