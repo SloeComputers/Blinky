@@ -8,43 +8,6 @@ env:
 jobs:
 
   #---------------------------------------------------------------------
-  # MacOS CI
-
-  build_MacOS:
-    runs-on: macOS-latest
-
-    steps:
-    - uses: actions/checkout@v6
-      with:
-       submodules: 'recursive'
-
-    - name: Install dependencies
-      run:  brew install SDL2
-
-    - name: Prepare build
-      run: mkdir -p ${{github.workspace}}/build/macOS
-
-    - name: Configure build
-      working-directory: ${{github.workspace}}/build/macOS
-      shell: bash
-      run: cmake -DBUILD_TESTING=ON ../..
-
-    - name: Build
-      working-directory: ${{github.workspace}}/build/macOS
-      shell: bash
-      run: make
-
-    - name: Test
-      working-directory: ${{github.workspace}}/build/macOS
-      shell: bash
-      run: ctest -V -C $BUILD_TYPE
-
-    - uses: actions/upload-artifact@v7
-      with:
-        name: blinky_MacOS
-        path: ${{github.workspace}}/build/macOS/*_NATIVE
-
-  #---------------------------------------------------------------------
   # Linux CI
 
   build_Linux:
@@ -84,14 +47,14 @@ jobs:
         path: ${{github.workspace}}/build/linux/*_NATIVE
 
   #---------------------------------------------------------------------
-  # MTL target CI
+  # macOS CI
 
-  build_MTL:
+  build_macOS:
     runs-on: macOS-latest
     strategy:
       fail-fast: false
       matrix:
-        target: [rp2040, rp2350, LPC11U24, LPC1768, LPC810, nRF51, nRF52]
+        target: [rp2040, rp2350, LPC11U24, LPC1768, LPC810, nRF51, nRF52, native]
 
     steps:
     - uses: actions/checkout@v6
@@ -99,7 +62,9 @@ jobs:
        submodules: 'recursive'
 
     - name: Install dependencies
-      run:  brew install arm-none-eabi-gcc
+      run: |
+        brew install arm-none-eabi-gcc
+        brew install SDL2
 
     - name: Prepare build
       run: mkdir -p ${{github.workspace}}/build/${{matrix.target}}
@@ -107,7 +72,7 @@ jobs:
     - name: Configure build
       working-directory: ${{github.workspace}}/build/${{matrix.target}}
       shell: bash
-      run: cmake -DPDK_TARGET=${{matrix.target}} -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/${{matrix.target}}/toolchain.cmake ../..
+      run: cmake ../.. -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/${{matrix.target}}/toolchain.cmake
 
     - name: Build
       working-directory: ${{github.workspace}}/build/${{matrix.target}}
@@ -121,3 +86,4 @@ jobs:
           ${{github.workspace}}/build/${{matrix.target}}/*.uf2
           ${{github.workspace}}/build/${{matrix.target}}/*.hex
           ${{github.workspace}}/build/${{matrix.target}}/*.bin
+          ${{github.workspace}}/build/${{matrix.target}}/*_NATIVE

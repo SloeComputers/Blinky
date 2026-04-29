@@ -60,25 +60,31 @@ or
 
 ## Build
 
+Indirect build for all targets using the make helper...
+
+```bash
+make
+```
+
 Indirect build for a named target using the make helper...
 
 ```bash
 make rp2040
 ```
 
-Direct build using `CMake`...
+Direct build for a single target using `CMake`...
 
 ```bash
-mkdir build/rp2040
-cd build/rp2040
-cmake ../.. -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/rp2040/toolchain.cmake
+mkdir build
+cd build
+cmake .. -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/rp2040/toolchain.cmake
 make
 ```
 
-Flashable images will be found under the build directory for each target...
+Flashable images will be found under the build directory...
 
 ```
-build/rp2040/blinky_RPIPICO.uf2
+build/blinky_RPIPICO.uf2
 ```
 
 ## License
