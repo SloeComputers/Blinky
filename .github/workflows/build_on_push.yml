@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [native]
+        target: [rp2040, rp2350, LPC11U24, LPC1768, LPC810, nRF51, nRF52, native]
 
     steps:
     - uses: actions/checkout@v6
@@ -26,6 +26,7 @@ jobs:
       run: |
            sudo apt-get update
            sudo apt-get install -y libsdl2-dev
+           sudo apt-get install -y gcc-arm-none-eabi
 
     - name: Prepare build
       run: mkdir -p ${{github.workspace}}/build/${{matrix.target}}
@@ -33,7 +34,9 @@ jobs:
     - name: Configure CMake
       shell: bash
       working-directory: ${{github.workspace}}/build/${{matrix.target}}
-      run: export SDL2_DIR=${{github.workspace}}/.github/workflows; cmake -DBUILD_TESTING=ON ../..
+      run: |
+        export SDL2_DIR=${{github.workspace}}/.github/workflows
+        cmake ../.. -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/${{matrix.target}}/toolchain.cmake -DBUILD_TESTING=ON
 
     - name: Build
       working-directory: ${{github.workspace}}/build/${{matrix.target}}
@@ -47,7 +50,7 @@ jobs:
 
     - uses: actions/upload-artifact@v7
       with:
-        name: Linux_blinky_${{matrix.target}}
+        name: blinky_Linux_${{matrix.target}}
         path: |
           ${{github.workspace}}/build/${{matrix.target}}/*.uf2
           ${{github.workspace}}/build/${{matrix.target}}/*.hex
@@ -80,7 +83,8 @@ jobs:
     - name: Configure build
       working-directory: ${{github.workspace}}/build/${{matrix.target}}
       shell: bash
-      run: cmake ../.. -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/${{matrix.target}}/toolchain.cmake -DBUILD_TESTING=ON
+      run: |
+         cmake ../.. -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/${{matrix.target}}/toolchain.cmake -DBUILD_TESTING=ON
 
     - name: Build
       working-directory: ${{github.workspace}}/build/${{matrix.target}}
@@ -94,7 +98,7 @@ jobs:
 
     - uses: actions/upload-artifact@v7
       with:
-        name: macOS_blinky_${{matrix.target}}
+        name: blinky_macOS_${{matrix.target}}
         path: |
           ${{github.workspace}}/build/${{matrix.target}}/*.uf2
           ${{github.workspace}}/build/${{matrix.target}}/*.hex

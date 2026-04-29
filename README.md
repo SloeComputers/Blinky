@@ -81,7 +81,7 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/rp2040/toolchain.cmake
 make
 ```
 
-Flashable images will be found under the build directory...
+Flashable images for modules supported for the selected target will be found under the build directory...
 
 ```
 build/blinky_RPIPICO.uf2
