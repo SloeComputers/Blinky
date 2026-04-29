@@ -12,6 +12,10 @@ jobs:
 
   build_Linux:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [native]
 
     steps:
     - uses: actions/checkout@v6
@@ -24,27 +28,31 @@ jobs:
            sudo apt-get install -y libsdl2-dev
 
     - name: Prepare build
-      run: mkdir -p ${{github.workspace}}/build/linux
+      run: mkdir -p ${{github.workspace}}/build/${{matrix.target}}
 
     - name: Configure CMake
       shell: bash
-      working-directory: ${{github.workspace}}/build/linux
+      working-directory: ${{github.workspace}}/build/${{matrix.target}}
       run: export SDL2_DIR=${{github.workspace}}/.github/workflows; cmake -DBUILD_TESTING=ON ../..
 
     - name: Build
-      working-directory: ${{github.workspace}}/build/linux
+      working-directory: ${{github.workspace}}/build/${{matrix.target}}
       shell: bash
       run: make
 
     - name: Test
-      working-directory: ${{github.workspace}}/build/linux
+      working-directory: ${{github.workspace}}/build/${{matrix.target}}
       shell: bash
       run: ctest -V -C $BUILD_TYPE
 
     - uses: actions/upload-artifact@v7
       with:
-        name: blinky_Linux
-        path: ${{github.workspace}}/build/linux/*_NATIVE
+        name: Linux_blinky_${{matrix.target}}
+        path: |
+          ${{github.workspace}}/build/${{matrix.target}}/*.uf2
+          ${{github.workspace}}/build/${{matrix.target}}/*.hex
+          ${{github.workspace}}/build/${{matrix.target}}/*.bin
+          ${{github.workspace}}/build/${{matrix.target}}/*_NATIVE
 
   #---------------------------------------------------------------------
   # macOS CI
@@ -72,16 +80,21 @@ jobs:
     - name: Configure build
       working-directory: ${{github.workspace}}/build/${{matrix.target}}
       shell: bash
-      run: cmake ../.. -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/${{matrix.target}}/toolchain.cmake
+      run: cmake ../.. -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/${{matrix.target}}/toolchain.cmake -DBUILD_TESTING=ON
 
     - name: Build
       working-directory: ${{github.workspace}}/build/${{matrix.target}}
       shell: bash
       run: make
 
+    - name: Test
+      working-directory: ${{github.workspace}}/build/${{matrix.target}}
+      shell: bash
+      run: ctest -V -C $BUILD_TYPE
+
     - uses: actions/upload-artifact@v7
       with:
-        name: blinky_${{matrix.target}}
+        name: macOS_blinky_${{matrix.target}}
         path: |
           ${{github.workspace}}/build/${{matrix.target}}/*.uf2
           ${{github.workspace}}/build/${{matrix.target}}/*.hex

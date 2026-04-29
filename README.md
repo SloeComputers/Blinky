@@ -89,4 +89,4 @@ build/blinky_RPIPICO.uf2
 
 ## License
 
-None.
+None
