@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [rp2040, rp2350, LPC11U24, LPC1768, LPC810, nRF51, nRF52, native]
+        target: [rp2040, rp2350, LPC1114, LPC11U24, LPC1768, LPC810, nRF51, nRF52, native]
 
     steps:
     - uses: actions/checkout@v6
@@ -65,7 +65,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [rp2040, rp2350, LPC11U24, LPC1768, LPC810, nRF51, nRF52, native]
+        target: [rp2040, rp2350, LPC1114, LPC11U24, LPC1768, LPC810, nRF51, nRF52, native]
 
     steps:
     - uses: actions/checkout@v6
