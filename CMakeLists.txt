@@ -5,7 +5,7 @@
 
 cmake_minimum_required(VERSION 3.20)
 
-project(blinky
+project(Blinky
         LANGUAGES CXX C ASM
         VERSION 0.1)
 
@@ -17,5 +17,4 @@ include(CTest)
 set(HWR_CONFIG blinky)
 
 add_subdirectory(PDK)
-
-add_blinky_executable(blinky blinky.cpp)
+add_subdirectory(Source)

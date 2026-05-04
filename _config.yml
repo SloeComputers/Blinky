@@ -1,5 +1,5 @@
 theme: jekyll-theme-slate
 title: Blinky
-description: A SloeComputers Project
+description: A SloeComputers project
 exclude:
    - PDK

@@ -1,4 +1,4 @@
-# blinky
+# Blinky
 
 Example embedded **PDK** project. Flashes an LED at around 1 Hz.
 
