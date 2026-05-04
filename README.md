@@ -77,7 +77,7 @@ Direct build for a single target using `CMake`...
 ```bash
 mkdir build
 cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/rp2040/toolchain.cmake
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=PDK/TGT/rp2040/toolchain.cmak
 make
 ```
 
