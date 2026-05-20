@@ -1,18 +1,10 @@
-#-------------------------------------------------------------------------------
-# Copyright (c) 2026 John D. Haughton
-# SPDX-License-Identifier: MIT
-#-------------------------------------------------------------------------------
+# Build project
 
 cmake_minimum_required(VERSION 3.20)
 
 project(Blinky
         LANGUAGES CXX C ASM
         VERSION 0.1)
-
-if(NOT DEFINED BUILD_TESTING)
-    set(BUILD_TESTING OFF CACHE BOOL "Build unit tests")
-endif()
-include(CTest)
 
 set(HWR_CONFIG blinky)
 

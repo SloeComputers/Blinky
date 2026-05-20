@@ -1,7 +1,4 @@
-//-------------------------------------------------------------------------------
-// Copyright (c) 2026 John D. Haughton
-// SPDX-License-Identifier: MIT
-//-------------------------------------------------------------------------------
+// Flashes an LED at around 1 Hz.
 
 #include <unistd.h>
 
@@ -11,13 +8,13 @@ static HWR::Led led;
 
 int main()
 {
-   led = false;
+   led = true;
 
    while(true)
    {
-      led = not led;
-
       usleep(500000);
+
+      led = not led;
    }
 
    return 0;
